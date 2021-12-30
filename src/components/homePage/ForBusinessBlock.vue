@@ -1,11 +1,7 @@
 <template>
   <div class="business-block">
     <div class="row business-block__alignment">
-      <img
-        class="col-md-7"
-        src="../assets/images/indexForBusinessImg.jpg"
-        alt=""
-      />
+      <img class="col-md-7" src="/images/indexForBusinessImg.jpg" alt="" />
       <div class="offset-md-1"></div>
       <div class="business-block__content col-md-4">
         <div class="business-block__header">Для бизнеса</div>

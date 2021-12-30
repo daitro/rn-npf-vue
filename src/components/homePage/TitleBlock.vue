@@ -20,6 +20,7 @@ export default {};
   max-width: 960px;
   margin: 0 auto;
   padding: 48px 24px;
+
   &__header {
     max-width: 860px;
     font-size: 24px;

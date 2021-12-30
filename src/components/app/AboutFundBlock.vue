@@ -1,15 +1,15 @@
 <template>
   <section class="fund-block">
-    <h3 class="header-mini">Фонд в цифрах</h3>
+    <h3 class="header-mini">{{ fundBlockTitle }}</h3>
     <div class="row five-column">
       <div
         v-for="(card, index) in cards"
         :key="index"
         class="content-block col-sm-4 col-md-3 col-lg-3"
       >
-        <img
-          src="../assets/icons/calendarDark.svg"
-          alt=""
+        <TripleIcon
+          :icon="card.icon"
+          :static="true"
           class="content-block__icon"
         />
         <h3 class="header-mini">{{ card.header }}</h3>
@@ -20,37 +20,24 @@
 </template>
 
 <script>
+import TripleIcon from "../gui/TripleIcon.vue";
+
 export default {
   data() {
-    return {
-      cards: [
-        {
-          icon: "calendarDark",
-          header: "17 лет на рынке",
-          text: "Фонд основан в 2002 году",
-        },
-        {
-          icon: "calendarDark",
-          header: "Высокий рейтинг",
-          text: "Надежность ruАА- по оценке Эксперт РА",
-        },
-        {
-          icon: "calendarDark",
-          header: "41 000 человек",
-          text: "участники пенсионной программы",
-        },
-        {
-          icon: "calendarDark",
-          header: "150 компаний",
-          text: "заботятся о пенсиях сотрудников",
-        },
-        {
-          icon: "calendarDark",
-          header: "17 млрд рублей",
-          text: "пенсионных резервов в Фонде",
-        },
-      ],
-    };
+    return {};
+  },
+  components: {
+    TripleIcon,
+  },
+  props: {
+    fundBlockTitle: {
+      type: String,
+      required: true,
+    },
+    cards: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>
@@ -58,8 +45,12 @@ export default {
 <style lang="scss" scoped>
 .fund-block {
   max-width: 960px;
-  margin: 0 auto;
-  padding: 48px 24px;
+  margin: 0 auto 48px;
+  padding: 0px 24px;
+
+  @media screen and (min-width: 768px) {
+    padding: 48px 24px;
+  }
 }
 
 .header-mini {
@@ -95,13 +86,17 @@ export default {
   }
 
   &__icon {
-    margin-bottom: 64px;
+    margin-bottom: 24px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 64px;
+    }
   }
 
   &__text {
     font-size: 13px;
     line-height: 24px;
-    color: #78828c;
+    color: #5a646e;
   }
 }
 </style>

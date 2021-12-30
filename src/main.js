@@ -1,9 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
-import router from "./router";
-import resetCss from "../src/styles/reset.css";
-import generalCss from "../src/styles/general.css";
-import gridCss from "../src/styles/grids.css";
+import router from "./router/index.js";
+import "../src/styles/reset.css";
+import "../src/styles/general.css";
+import "../src/styles/grids.css";
 
 Vue.config.productionTip = false;
 
