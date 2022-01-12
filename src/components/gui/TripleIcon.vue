@@ -2,6 +2,7 @@
   <img
     @mouseover="isLocalHovered = true"
     @mouseout="isLocalHovered = false"
+    @click="$emit('click-icon')"
     class="triple-icon"
     :src="imgUrl"
     :alt="icon"
