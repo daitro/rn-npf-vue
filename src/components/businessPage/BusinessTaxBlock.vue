@@ -2,7 +2,7 @@
   <section class="tax-preferences">
     <div class="tax-preferences__container">
       <div class="tax-preferences__button-group">
-        <RadioButtonContent
+        <GuiSwitchCards
           :name="name"
           :value="radioButtonCompany.value"
           :icon="radioButtonCompany.icon"
@@ -13,7 +13,7 @@
             usersBlockHidden = !usersBlockHidden;
           "
         />
-        <RadioButtonContent
+        <GuiSwitchCards
           :name="name"
           :value="radioButtonUsers.value"
           :icon="radioButtonUsers.icon"
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import RadioButtonContent from "../gui/RadioButtonContent.vue";
+import GuiSwitchCards from "../gui/GuiSwitchCards.vue";
 
 export default {
   data() {
@@ -83,7 +83,7 @@ export default {
     };
   },
   components: {
-    RadioButtonContent,
+    GuiSwitchCards,
   },
 };
 </script>

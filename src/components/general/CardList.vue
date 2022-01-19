@@ -7,7 +7,7 @@
         :key="index"
         class="content-block col-sm-4 col-md-3 col-lg-3"
       >
-        <TripleIcon :icon="card.icon" static class="content-block__icon" />
+        <GuiTripleIcon :icon="card.icon" static class="content-block__icon" />
         <h3 class="header-mini">{{ card.header }}</h3>
         <div class="content-block__text">{{ card.text }}</div>
       </div>
@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import TripleIcon from "../gui/TripleIcon.vue";
+import GuiTripleIcon from "../gui/GuiTripleIcon.vue";
 
 export default {
   components: {
-    TripleIcon,
+    GuiTripleIcon,
   },
   props: {
     fundBlockTitle: {

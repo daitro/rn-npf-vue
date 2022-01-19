@@ -2,8 +2,8 @@
   <aside class="side-bar-menu" id="side-bar">
     <div class="side-bar-menu__container">
       <div class="side-bar-menu__top-block">
-        <TripleIcon
-          style="margin-right: 12px"
+        <GuiTripleIcon
+          class="side-bar-menu__icon"
           icon="Cross"
           dark
           @click.native="closeMenu"
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import TripleIcon from "../../components/gui/TripleIcon.vue";
+import GuiTripleIcon from "../../components/gui/GuiTripleIcon.vue";
 
 export default {
   data() {
@@ -73,7 +73,7 @@ export default {
       window.document.body.style.overflow = "auto";
     },
   },
-  components: { TripleIcon },
+  components: { GuiTripleIcon },
 };
 </script>
 
@@ -89,6 +89,10 @@ export default {
 
   &__container {
     padding: 24px;
+  }
+
+  &__icon {
+    margin-right: 12px;
   }
 
   &__top-block {

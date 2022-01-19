@@ -9,19 +9,18 @@
     <div class="header__inner">
       <nav class="menu">
         <div class="menu__blockStart">
-          <TripleIcon
+          <GuiTripleIcon
             class="menu__hamburger"
             icon="Hamburger"
             light
             @click.native="openMenu"
           />
 
-          <img
-            class="menu__logo"
-            src="/logotype/mainLogoWb.svg"
-            alt=""
-            @click="$router.push('/')"
-          />
+          <GuiLogotype
+            logotype="mainLogo"
+            light
+            @click.native="$router.push('/')"
+          ></GuiLogotype>
         </div>
         <div class="menu__list">
           <router-link
@@ -45,7 +44,7 @@
             @mouseover="isLoginButtonHovered = true"
             @mouseout="isLoginButtonHovered = false"
           >
-            <TripleIcon
+            <GuiTripleIcon
               icon="User"
               light
               class="login__user"
@@ -60,11 +59,13 @@
 </template>
 
 <script>
-import TripleIcon from "../gui/TripleIcon.vue";
+import GuiTripleIcon from "../gui/GuiTripleIcon.vue";
+import GuiLogotype from "../gui/GuiLogotype.vue";
 
 export default {
   components: {
-    TripleIcon,
+    GuiTripleIcon,
+    GuiLogotype,
   },
   data() {
     return {
@@ -82,10 +83,10 @@ export default {
           label: "Бизнес",
           path: "/business",
         },
-        // {
-        //   label:"Поддержка",
-        //   path: '',
-        // },
+        {
+          label: "Новости",
+          path: "/news",
+        },
         // {
         //   label: "Контакты",
         //   path: '',
@@ -146,10 +147,6 @@ export default {
   &__blockEnd {
     display: flex;
     align-items: flex-start;
-  }
-
-  &__logo {
-    cursor: pointer;
   }
 
   &__list {

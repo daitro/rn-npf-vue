@@ -4,14 +4,18 @@
       <div class="news-carousel__header-block">
         <h2 class="news-carousel__header">Новости</h2>
         <div class="news-carousel__selector">
-          <TripleIcon
+          <GuiTripleIcon
             style="transform: scale(-1, 1)"
             icon="ArrowRight"
             dark
             @click.native="onClickPrevSlide"
           />
 
-          <TripleIcon icon="ArrowRight" dark @click.native="onClickNextSlide" />
+          <GuiTripleIcon
+            icon="ArrowRight"
+            dark
+            @click.native="onClickNextSlide"
+          />
         </div>
       </div>
       <div class="news-carousel__visible-block">
@@ -31,7 +35,7 @@
 </template>
 
 <script>
-import TripleIcon from "../gui/TripleIcon.vue";
+import GuiTripleIcon from "../gui/GuiTripleIcon.vue";
 
 export default {
   data() {
@@ -72,7 +76,7 @@ export default {
     },
   },
   components: {
-    TripleIcon,
+    GuiTripleIcon,
   },
 };
 </script>

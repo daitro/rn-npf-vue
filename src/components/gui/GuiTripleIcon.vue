@@ -2,8 +2,9 @@
   <img
     @mouseover="isLocalHovered = true"
     @mouseout="isLocalHovered = false"
-    @click="$emit('click-icon')"
+    @click="$emit('click')"
     class="triple-icon"
+    :class="{ 'triple-icon--disabled': disabled === true }"
     :src="imgUrl"
     :alt="icon"
   />
@@ -34,12 +35,16 @@ export default {
       type: Boolean,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     imgUrl() {
       let state = this.light ? "Light" : "Dark";
 
-      if (this.static) {
+      if (this.static || this.disabled) {
         this.isLocalHovered = false;
       }
 
@@ -56,5 +61,10 @@ export default {
   cursor: pointer;
   height: 24px;
   width: 24px;
+
+  &--disabled {
+    opacity: 50%;
+    cursor: auto;
+  }
 }
 </style>

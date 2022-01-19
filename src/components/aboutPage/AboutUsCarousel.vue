@@ -3,16 +3,16 @@
     <div class="carousel-block__header-block">
       <h3 class="carousel-block__title">История фонда</h3>
       <div class="group-icon">
-        <TripleIcon
+        <GuiTripleIcon
           class="group-icon__arrow-left"
-          @click-icon="onClickPrevSlide"
-          :static="carouselItemActive === 1"
+          @click="onClickPrevSlide"
+          :disabled="carouselItemActive === 1"
           icon="ArrowRight"
           dark
         />
-        <TripleIcon
-          @click-icon="onClickNextSlide"
-          :static="carouselItemActive === carouselItemAllCount"
+        <GuiTripleIcon
+          @click="onClickNextSlide"
+          :disabled="carouselItemActive === carouselItemAllCount"
           icon="ArrowRight"
           dark
         />
@@ -42,20 +42,24 @@
 </template>
 
 <script>
-import TripleIcon from "../gui/TripleIcon.vue";
+import GuiTripleIcon from "../gui/GuiTripleIcon.vue";
 
 export default {
   data() {
     return {
-      carouselItemAllCount: 4,
       carouselItemActive: 1,
       carouselItemWidth: 500,
     };
   },
-  props: ["historyList"],
+  props: {
+    historyList: {
+      type: Array,
+      required: true,
+    },
+  },
   methods: {
     onClickNextSlide() {
-      if (this.carouselItemActive < this.carouselItemAllCount) {
+      if (this.carouselItemActive < `${this.carouselItemAllCount}`) {
         this.carouselItemActive += 1;
       }
     },
@@ -73,9 +77,13 @@ export default {
         this.carouselItemWidth
       );
     },
+
+    carouselItemAllCount() {
+      return this.historyList.length;
+    },
   },
   components: {
-    TripleIcon,
+    GuiTripleIcon,
   },
 };
 </script>

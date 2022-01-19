@@ -2,30 +2,41 @@
   <section class="footer-block">
     <div class="footer-block__container">
       <div class="footer-block__logo-group">
-        <img
+        <GuiLogotype
           class="footer-block__main-logo"
-          src="/logotype/mainLogoColor.svg"
-          alt=""
-        />
-        <img src="/logotype/partnersLogo.svg" alt="" />
+          logotype="mainLogo"
+        ></GuiLogotype>
+        <img src="/logotype/partnersLogo.svg" />
       </div>
       <div class="footer-block__phone-number">8 800 200-47-66</div>
       <div class="footer-block__information">
         <div class="footer-block__menu-navigation">
           <ul class="footer-block__menu-list">
-            <li class="footer-block__menu-item">Написать нам</li>
-            <li class="footer-block__menu-item">Поддержка</li>
-            <li class="footer-block__menu-item">Политика конфиденциальности</li>
+            <li
+              class="footer-block__menu-item"
+              v-for="(item, index) in firstBlock"
+              :key="index"
+            >
+              {{ item }}
+            </li>
           </ul>
           <ul class="footer-block__menu-list">
-            <li class="footer-block__menu-item">Руководство Фондом</li>
-            <li class="footer-block__menu-item">Раскрытие информации</li>
-            <li class="footer-block__menu-item">Инвестиционная деятельность</li>
+            <li
+              class="footer-block__menu-item"
+              v-for="(item, index) in secondBlock"
+              :key="index"
+            >
+              {{ item }}
+            </li>
           </ul>
           <ul class="footer-block__menu-list">
-            <li class="footer-block__menu-item">Для бизнеса</li>
-            <li class="footer-block__menu-item">Поддержка</li>
-            <li class="footer-block__menu-item">Калькулятор</li>
+            <li
+              class="footer-block__menu-item"
+              v-for="(item, index) in thirdBlock"
+              :key="index"
+            >
+              {{ item }}
+            </li>
           </ul>
         </div>
         <div class="footer-block__text-bottom">
@@ -38,7 +49,22 @@
 </template>
 
 <script>
-export default {};
+import GuiLogotype from "../gui/GuiLogotype.vue";
+
+export default {
+  components: { GuiLogotype },
+  data() {
+    return {
+      firstBlock: ["Написать нам", "Поддержка", "Политика конфиденциальности"],
+      secondBlock: [
+        "Руководство Фондом",
+        "Раскрытие информации",
+        "Инвестиционная деятельность",
+      ],
+      thirdBlock: ["Для бизнеса", "Поддержка", "Калькулятор"],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
