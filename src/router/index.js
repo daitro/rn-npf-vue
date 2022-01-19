@@ -4,6 +4,7 @@ import Home from "../pages/HomePage.vue";
 import About from "../pages/AboutPage.vue";
 import Investing from "../pages/InvestingPage.vue";
 import Business from "../pages/BusinessPage.vue";
+import News from "../pages/NewsPage.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: "/business",
     name: "Business",
     component: Business,
+  },
+  {
+    path: "/news",
+    name: "News",
+    component: News,
   },
 ];
 

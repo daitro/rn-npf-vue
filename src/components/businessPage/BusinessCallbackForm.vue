@@ -7,21 +7,21 @@
         персональную программу для сотрудников вашей компании.
       </h1>
       <div class="application-form__controls-block">
-        <InputText
+        <GuiInput
           :label="number.label"
           v-model="number.value"
           :id="number.id"
           :hasError="number.hasError"
           :textError="number.textError"
-          @blur="numberCheck"
+          @blur="phoneCheck"
         />
-        <InputText
+        <GuiInput
           :label="name.label"
           :value="name.value"
           :id="name.id"
           @input="name.value = $event"
         />
-        <InputText
+        <GuiInput
           :label="mail.label"
           :value="mail.value"
           :id="mail.id"
@@ -30,7 +30,7 @@
           @blur="mailCheck"
           @input="mail.value = $event"
         />
-        <InputText
+        <GuiInput
           :label="company.label"
           :value="company.value"
           :id="company.id"
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import InputText from "../gui/InputText.vue";
+import GuiInput from "../gui/GuiInput.vue";
 
 export default {
   data() {
@@ -75,20 +75,19 @@ export default {
     };
   },
   components: {
-    InputText,
+    GuiInput,
   },
   methods: {
     mailCheck() {
-      if (!this.mail.value.includes("@")) {
+      if ((this.mail.hasError = !this.mail.value.includes("@"))) {
         this.mail.hasError = true;
       } else {
         this.mail.hasError = false;
       }
     },
-    numberCheck() {
+    phoneCheck() {
       let re = /^\d[\d\(\)\ -]{4,14}\d$/;
-      let numberValidation = re.test(this.number.value);
-      if (!numberValidation) {
+      if ((this.number.hasError = !re.test(this.number.value))) {
         this.number.hasError = true;
       } else {
         this.number.hasError = false;

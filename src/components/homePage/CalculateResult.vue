@@ -12,7 +12,7 @@
           >
             {{ accumulated + " р." }}</output
           >
-          <TripleIcon icon="Info" dark />
+          <GuiTripleIcon icon="Info" dark />
         </div>
         <div class="calculate-result__text">Накоплено</div>
       </div>
@@ -23,7 +23,7 @@
             class="calculate-result__title calculate-result__title--small"
             >{{ deduction + " р." }}</output
           >
-          <TripleIcon icon="Info" dark />
+          <GuiTripleIcon icon="Info" dark />
         </div>
         <div class="calculate-result__text">Размер соц. вычета</div>
       </div>
@@ -32,11 +32,11 @@
 </template>
 
 <script>
-import TripleIcon from "../gui/TripleIcon.vue";
+import GuiTripleIcon from "../gui/GuiTripleIcon.vue";
 
 export default {
   props: ["pension", "accumulated", "deduction"],
-  components: { TripleIcon },
+  components: { GuiTripleIcon },
 };
 </script>
 

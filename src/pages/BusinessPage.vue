@@ -6,20 +6,20 @@
       :imagePath="'/images/businessTopBlock.jpg'"
     />
     <BusinessProgramm />
-    <TwoImageBlock :firstImg="firstImg" :secondImg="secondImg" />
-    <AboutFundBlock :fundBlockTitle="fundBlockTitle" :cards="cards" />
+    <GuiTwoImagesBlock :firstImg="firstImg" :secondImg="secondImg" />
+    <CardList :fundBlockTitle="fundBlockTitle" :cards="cards" />
     <BusinessTaxBlock />
-    <ApplicationForm />
+    <BusinessCallbackForm />
   </div>
 </template>
 
 <script>
 import TopBlock from "../components/app/TopBlock.vue";
 import BusinessProgramm from "../components/businessPage/BusinessProgramm.vue";
-import TwoImageBlock from "../components/businessPage/TwoImageBlock.vue";
-import AboutFundBlock from "../components/app/AboutFundBlock.vue";
+import GuiTwoImagesBlock from "../components/gui/GuiTwoImagesBlock.vue";
+import CardList from "../components/general/CardList.vue";
 import BusinessTaxBlock from "../components/businessPage/BusinessTaxBlock.vue";
-import ApplicationForm from "../components/businessPage/ApplicationForm.vue";
+import BusinessCallbackForm from "../components/businessPage/BusinessCallbackForm.vue";
 
 export default {
   data() {
@@ -53,10 +53,10 @@ export default {
   components: {
     TopBlock,
     BusinessProgramm,
-    TwoImageBlock,
-    AboutFundBlock,
+    GuiTwoImagesBlock,
+    CardList,
     BusinessTaxBlock,
-    ApplicationForm,
+    BusinessCallbackForm,
   },
 };
 </script>

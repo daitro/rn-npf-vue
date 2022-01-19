@@ -3,17 +3,17 @@
     <TopBlock
       :title-text="title"
       :subtitle-text="subtitle"
-      :imagePath="'../images/aboutTopBlock.png'"
+      :imagePath="'/images/aboutTopBlock.png'"
     />
     <AboutContent />
-    <AboutFundBlock :cards="cards" :fundBlockTitle="fundBlockTitle" />
+    <CardList :cards="cards" :fundBlockTitle="fundBlockTitle" />
   </div>
 </template>
 
 <script>
 import TopBlock from "../components/app/TopBlock.vue";
 import AboutContent from "../components/aboutPage/AboutContent.vue";
-import AboutFundBlock from "../components/app/AboutFundBlock.vue";
+import CardList from "../components/general/CardList.vue";
 
 export default {
   data() {
@@ -26,7 +26,7 @@ export default {
         {
           icon: "Calendar",
           header: "17 лет на рынке",
-          text: "Фонд основан в 2002 году",
+          text: "Фонд основан в 2002 году",
         },
         {
           icon: "High Rate",
@@ -54,7 +54,7 @@ export default {
   components: {
     TopBlock,
     AboutContent,
-    AboutFundBlock,
+    CardList,
   },
 };
 </script>

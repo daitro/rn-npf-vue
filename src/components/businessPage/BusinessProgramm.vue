@@ -9,7 +9,7 @@
         v-for="(card, index) in cards"
         :key="index"
       >
-        <TripleIcon
+        <GuiTripleIcon
           :icon="card.icon"
           :static="true"
           class="content-block__icon"
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import TripleIcon from "../gui/TripleIcon.vue";
+import GuiTripleIcon from "../gui/GuiTripleIcon.vue";
 
 export default {
   data() {
@@ -73,7 +73,7 @@ export default {
     };
   },
   components: {
-    TripleIcon,
+    GuiTripleIcon,
   },
 };
 </script>

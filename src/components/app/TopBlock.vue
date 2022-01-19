@@ -14,7 +14,20 @@
 
 <script>
 export default {
-  props: ["titleText", "subtitleText", "imagePath"],
+  props: {
+    titleText: {
+      type: String,
+      required: true,
+    },
+    subtitleText: {
+      type: String,
+      required: true,
+    },
+    imagePath: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>
 

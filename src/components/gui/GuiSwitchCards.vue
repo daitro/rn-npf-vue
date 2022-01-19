@@ -15,7 +15,7 @@
         :value="value"
         @change="clickOnButton"
       />
-      <TripleIcon
+      <GuiTripleIcon
         class="radio-button__icon"
         :icon="icon"
         dark
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import TripleIcon from "./TripleIcon.vue";
+import GuiTripleIcon from "./GuiTripleIcon.vue";
 
 export default {
   data() {
@@ -42,7 +42,7 @@ export default {
   },
   props: ["choosedButtonValue", "name", "value", "icon", "text"],
   components: {
-    TripleIcon,
+    GuiTripleIcon,
   },
 };
 </script>

@@ -7,10 +7,7 @@
     />
     <TitleBlock></TitleBlock>
     <ForBusinessBlock></ForBusinessBlock>
-    <AboutFundBlock
-      :fundBlockTitle="fundBlockTitle"
-      :cards="cards"
-    ></AboutFundBlock>
+    <CardList :fundBlockTitle="fundBlockTitle" :cards="cards"></CardList>
     <CalculatorBlock></CalculatorBlock>
     <NewsCarouselBlock :news="sliderList"></NewsCarouselBlock>
   </div>
@@ -20,7 +17,7 @@
 import TopBlock from "../components/app/TopBlock.vue";
 import TitleBlock from "../components/homePage/TitleBlock.vue";
 import ForBusinessBlock from "../components/homePage/ForBusinessBlock.vue";
-import AboutFundBlock from "../components/app/AboutFundBlock.vue";
+import CardList from "../components/general/CardList.vue";
 import CalculatorBlock from "../components/homePage/CalculatorBlock.vue";
 import NewsCarouselBlock from "../components/homePage/NewsCarouselBlock.vue";
 
@@ -87,7 +84,7 @@ export default {
     TopBlock,
     TitleBlock,
     ForBusinessBlock,
-    AboutFundBlock,
+    CardList,
     CalculatorBlock,
     NewsCarouselBlock,
   },

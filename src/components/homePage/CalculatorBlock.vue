@@ -6,14 +6,14 @@
       <div class="row">
         <div class="col-sm-6 col-md-5">
           <div class="gender-age-block">
-            <RadioButtonShort
+            <GuiRadioButton
               :choosedButtonValue="choosedButtonValue"
               :name="name"
               :radioButtons="radioButtons"
               @myChange="choosedButtonValue = $event"
-            ></RadioButtonShort>
+            ></GuiRadioButton>
 
-            <InputRange
+            <GuiInputRange
               :value="age.value"
               :label="age.label"
               :min="age.min"
@@ -23,7 +23,7 @@
             />
           </div>
 
-          <InputRange
+          <GuiInputRange
             :value="initialFee.value"
             :label="initialFee.label"
             :min="initialFee.min"
@@ -32,7 +32,7 @@
             @myInput="initialFee.value = $event"
           />
 
-          <InputRange
+          <GuiInputRange
             :value="monthlyFee.value"
             :label="monthlyFee.label"
             :min="monthlyFee.min"
@@ -41,7 +41,7 @@
             @myInput="monthlyFee.value = $event"
           />
 
-          <InputRange
+          <GuiInputRange
             :value="dueDate.value"
             :label="dueDate.label"
             :min="dueDate.min"
@@ -64,8 +64,8 @@
 </template>
 
 <script>
-import RadioButtonShort from "../gui/RadioButtonShort.vue";
-import InputRange from "../gui/InputRange.vue";
+import GuiRadioButton from "../gui/GuiRadioButton.vue";
+import GuiInputRange from "../gui/GuiInputRange.vue";
 import CalculateResult from "./CalculateResult.vue";
 
 export default {
@@ -154,8 +154,8 @@ export default {
     },
   },
   components: {
-    RadioButtonShort,
-    InputRange,
+    GuiRadioButton,
+    GuiInputRange,
     CalculateResult,
   },
   methods: {
