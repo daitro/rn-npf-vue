@@ -21,7 +21,6 @@ export default {
     },
     subtitleText: {
       type: String,
-      required: true,
     },
     imagePath: {
       type: String,
@@ -43,7 +42,7 @@ export default {
     font-size: 14px;
     line-height: 20px;
     color: white;
-    max-width: 800px;
+    max-width: 660px;
     width: 100%;
 
     @media screen and (min-width: 768px) {
@@ -59,7 +58,7 @@ export default {
     padding: 120px 24px 64px;
 
     @media screen and (min-width: 768px) {
-      padding: 360px 24px 144px;
+      padding: 360px 24px 70px;
     }
   }
 }

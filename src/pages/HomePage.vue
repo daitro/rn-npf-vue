@@ -9,7 +9,7 @@
     <ForBusinessBlock></ForBusinessBlock>
     <CardList :fundBlockTitle="fundBlockTitle" :cards="cards"></CardList>
     <CalculatorBlock></CalculatorBlock>
-    <NewsCarouselBlock :news="sliderList"></NewsCarouselBlock>
+    <NewsCarouselBlock :newsList="newsList"></NewsCarouselBlock>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
       title: "Уверенность в будущем, доступная каждому",
       subtitle:
         "Обеспечьте себе стабильность и приступайте к реализации своих самых смелых планов!",
-      sliderList: [
+      newsList: [
         {
           title: "АО НПФ «Ренессанс пенсии» развивает сотрудничество с ВТБ",
           text: "С целью проведения расчетов организован трехсторонний электронный документооборот при участии ЗАО ВТБ Специализированный депозитарий",
