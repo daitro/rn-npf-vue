@@ -5,25 +5,35 @@
         <h2 class="news-carousel__header">Новости</h2>
         <div class="news-carousel__selector">
           <GuiTripleIcon
-            style="transform: scale(-1, 1)"
+            class="news-carousel__arrow-left"
+            @click="onClickPrevSlide"
+            :disabled="carouselItemActive === 1"
             icon="ArrowRight"
             dark
-            @click.native="onClickPrevSlide"
           />
-
           <GuiTripleIcon
+            @click="onClickNextSlide"
+            :disabled="carouselItemActive === carouselItemAllCount"
             icon="ArrowRight"
             dark
-            @click.native="onClickNextSlide"
           />
         </div>
       </div>
       <div class="news-carousel__visible-block">
         <div
-          :style="{ left: sliderOffsetLeft + 'px' }"
+          :style="{ left: `${carouselItemOffsetLeft}px` }"
           class="news-carousel__hidden-block"
         >
-          <div v-for="(item, index) in news" :key="index" class="new-item">
+          <div
+            v-for="(item, index) in newsList"
+            :key="index"
+            class="new-item"
+            :class="{
+              'new-item--active':
+                index === carouselItemActive ||
+                index === carouselItemActive - 1,
+            }"
+          >
             <h3 class="new-item__title">{{ item.title }}</h3>
             <p class="new-item__text">{{ item.text }}</p>
             <div class="new-item__date">{{ item.date }}</div>
@@ -40,39 +50,39 @@ import GuiTripleIcon from "../gui/GuiTripleIcon.vue";
 export default {
   data() {
     return {
-      sliderAllCount: 4,
-      sliderActive: 1,
-      sliderOffsetLeft: 0,
-      sliderOffsetStep: 0,
+      carouselItemActive: 1,
+      carouselItemWidth: 500,
     };
   },
-  props: ["news"],
-  methods: {
-    openSlide(sliderIndex) {
-      let slider = document.querySelector(".new-item");
-      this.sliderOffsetStep = slider.clientWidth;
-
-      if (sliderIndex > 0 && sliderIndex <= this.sliderAllCount) {
-        this.sliderActive = sliderIndex;
-        this.sliderOffsetLeft = -(
-          this.sliderActive * this.sliderOffsetStep -
-          this.sliderOffsetStep
-        );
-      }
+  props: {
+    newsList: {
+      type: Array,
+      required: true,
     },
-
+  },
+  methods: {
     onClickNextSlide() {
-      if (this.sliderActive < this.sliderAllCount) {
-        this.sliderActive += 1;
-        this.openSlide(this.sliderActive);
+      if (this.carouselItemActive < `${this.carouselItemAllCount}`) {
+        this.carouselItemActive += 1;
       }
     },
 
     onClickPrevSlide() {
-      if (this.sliderActive > 1) {
-        this.sliderActive -= 1;
-        this.openSlide(this.sliderActive);
+      if (this.carouselItemActive > 1) {
+        this.carouselItemActive -= 1;
       }
+    },
+  },
+  computed: {
+    carouselItemOffsetLeft() {
+      return -(
+        this.carouselItemActive * this.carouselItemWidth -
+        this.carouselItemWidth
+      );
+    },
+
+    carouselItemAllCount() {
+      return this.newsList.length;
     },
   },
   components: {
@@ -86,6 +96,10 @@ export default {
   &__container {
     padding: 24px 24px 48px;
     overflow: hidden;
+  }
+
+  &__arrow-left {
+    transform: scale(-1, 1);
   }
 
   &__header-block {
@@ -132,9 +146,11 @@ export default {
   width: 340px;
   padding-right: 72px;
   white-space: normal;
-  &:hover {
-    opacity: 70%;
-    cursor: pointer;
+  cursor: pointer;
+  opacity: 0.5;
+
+  &--active {
+    opacity: 1;
   }
 
   @media screen and (min-width: 768px) {

@@ -74,7 +74,7 @@ function descendingOrder(n) {
 }
 
 console.log(descendingOrder(853962));
-*/
+
 
 function high(x) {
   let alfArr = [
@@ -133,3 +133,95 @@ console.log(high("man i need a taxi up to ubud"));
 // Найти индекс самого большого числа в массиве чисел
 // Индекс самого большого числа совпадает с индексом необходимого нам слова
 // По индексу найти слово в массиве слов и вернуть слово
+
+function sequenceSum(begin, end, step) {
+  let sum = begin;
+  let integer = begin;
+  if (begin > end) return 0;
+
+  for (integer; integer + step <= end; integer += step) {
+    sum = sum + integer + step;
+  }
+  return sum;
+}
+
+console.log(sequenceSum(1, 5, 1));
+
+
+function oddOrEven(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  if (array.length === 0 || sum % 2 === 0) {
+    return "even";
+  } else {
+    return "odd";
+  }
+}
+
+console.log(oddOrEven([0, -1, -3]));
+
+
+function solve(s) {
+  let character = "";
+  let uppercase = 0;
+  let lowecase = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    character = s[i];
+    if (character === character.toLowerCase()) {
+      lowecase++;
+    } else {
+      uppercase++;
+    }
+  }
+
+  if (lowecase > uppercase || lowecase === uppercase) {
+    return s.toLowerCase();
+  } else {
+    return s.toUpperCase();
+  }
+}
+
+console.log(solve("CODe"));
+
+
+let add = (a, b) => {
+  if (b !== undefined) return a + b;
+  return (c) => a + c;
+};
+
+console.log(add(2, 5));
+console.log(add(2)(5));
+*/
+
+function nbDig(n, d) {
+  let arrOfNumberSquared = [];
+  for (let k = 0; k <= n; k++) {
+    let num = k * k;
+    arrOfNumberSquared.push(num);
+  }
+
+  let arrResultingNumbers = arrOfNumberSquared.filter((item) => {
+    if (String(item).includes(String(d))) {
+      return item;
+    }
+  });
+
+  let res = [];
+  if (d === 0) {
+    res.push(0);
+  }
+
+  let stringResult = arrResultingNumbers.join("");
+  for (let char of stringResult) {
+    if (char == d) {
+      res.push(char);
+    }
+  }
+
+  return res.length;
+}
+
+console.log(nbDig(11011, 2));
