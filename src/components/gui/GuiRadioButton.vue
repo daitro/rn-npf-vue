@@ -56,8 +56,8 @@ export default {
     padding: 12px 24px 14px;
     line-height: 24px;
     font-size: 16px;
-    color: white;
-    background-color: #b5bdc8;
+    color: $white;
+    background-color: $gray4;
     border-radius: 24px;
     margin-right: 8px;
     cursor: pointer;
@@ -68,7 +68,7 @@ export default {
     }
 
     &--is-active {
-      background-color: #50287d;
+      background-color: $primary;
 
       &:hover {
         opacity: 1;

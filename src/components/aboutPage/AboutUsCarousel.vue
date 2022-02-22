@@ -153,7 +153,7 @@ export default {
   }
 
   &__line {
-    border-top: 1px solid #e4e4e4;
+    border-top: 1px solid $gray5;
     margin: 24px 0;
     position: relative;
     width: 100vw;
@@ -162,7 +162,7 @@ export default {
       content: "";
       width: 8px;
       height: 8px;
-      background-color: black;
+      background-color: $main-dark;
       border-radius: 50%;
       position: absolute;
       bottom: -4px;
@@ -173,7 +173,7 @@ export default {
     padding-right: 72px;
     font-size: 16px;
     line-height: 24px;
-    color: #78828c;
+    color: $gray2;
 
     @media screen and (min-width: 768px) {
       padding-right: 140px;

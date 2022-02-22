@@ -38,7 +38,7 @@ export default {
     max-width: 760px;
     font-size: 16px;
     line-height: 24px;
-    color: #78828c;
+    color: $gray2;
     margin-bottom: 24px;
   }
 }

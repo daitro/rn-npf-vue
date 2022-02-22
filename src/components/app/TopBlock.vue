@@ -41,7 +41,7 @@ export default {
   &__sub-title {
     font-size: 14px;
     line-height: 20px;
-    color: white;
+    color: $white;
     max-width: 660px;
     width: 100%;
 

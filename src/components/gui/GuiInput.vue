@@ -69,21 +69,21 @@ export default {
   &__label {
     font-size: 12px;
     line-height: 16px;
-    color: #78828c;
+    color: $gray2;
     cursor: pointer;
   }
 
   &__input {
-    border-bottom: 1px solid #b5bdc8;
+    border-bottom: 1px solid $gray4;
     line-height: 24px;
     height: 36px;
 
     &:hover {
-      border-color: #50287d;
+      border-color: $primary;
     }
 
     &:focus {
-      border-bottom: 2px solid #50287d;
+      border-bottom: 2px solid $primary;
     }
 
     &--error {

@@ -80,7 +80,7 @@ export default {
     font-size: 13px;
     line-height: 24px;
     width: 102px;
-    color: #5a646e;
+    color: $gray1;
     margin-left: 48px;
   }
 }

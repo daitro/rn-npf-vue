@@ -87,10 +87,6 @@ export default {
           label: "Новости",
           path: "/news",
         },
-        // {
-        //   label: "Контакты",
-        //   path: '',
-        // },
       ],
       isBlack: false,
     };
@@ -120,6 +116,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  max-width: 1440px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -162,12 +159,12 @@ export default {
   &__item {
     display: none;
     &:hover {
-      color: white;
+      color: $white;
     }
     @media screen and (min-width: 1200px) {
       display: block;
       font-size: 16px;
-      color: #b5bdc8;
+      color: $gray4;
       line-height: 24px;
       text-decoration: none;
     }
@@ -191,15 +188,15 @@ export default {
   }
 
   &__number {
-    color: white;
+    color: $white;
     line-height: 24px;
     &--dark {
-      color: #28323c;
+      color: $main-dark;
     }
   }
 
   &__text {
-    color: #b5bdc8;
+    color: $gray4;
     font-size: 11px;
     line-height: 18px;
   }
@@ -211,7 +208,7 @@ export default {
 
   &__text {
     display: none;
-    color: white;
+    color: $white;
     line-height: 24px;
     margin-left: 10px;
     @media screen and (min-width: 578px) {

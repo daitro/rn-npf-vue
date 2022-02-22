@@ -12,22 +12,24 @@
       <div class="footer-block__information">
         <div class="footer-block__menu-navigation">
           <ul class="footer-block__menu-list">
-            <li
+            <router-link
+              :to="item.path"
               class="footer-block__menu-item"
               v-for="(item, index) in firstBlock"
               :key="index"
             >
-              {{ item }}
-            </li>
+              {{ item.label }}
+            </router-link>
           </ul>
           <ul class="footer-block__menu-list">
-            <li
+            <router-link
+              :to="item.path"
               class="footer-block__menu-item"
               v-for="(item, index) in secondBlock"
               :key="index"
             >
-              {{ item }}
-            </li>
+              {{ item.label }}
+            </router-link>
           </ul>
           <ul class="footer-block__menu-list">
             <li
@@ -55,13 +57,17 @@ export default {
   components: { GuiLogotype },
   data() {
     return {
-      firstBlock: ["Написать нам", "Поддержка", "Политика конфиденциальности"],
-      secondBlock: [
-        "Руководство Фондом",
-        "Раскрытие информации",
-        "Инвестиционная деятельность",
+      firstBlock: [
+        { label: "На главную", path: "/" },
+        { label: "Новости", path: "/news" },
+        { label: "О Фонде", path: "/about" },
       ],
-      thirdBlock: ["Для бизнеса", "Поддержка", "Калькулятор"],
+      secondBlock: [
+        { label: "Для бизнеса", path: "/business" },
+        { label: "Управление фондом", path: "/about" },
+        { label: "Инвестиционная деятельность", path: "/investing" },
+      ],
+      thirdBlock: ["Написать нам", "Поддержка", "Калькулятор"],
     };
   },
 };
@@ -69,7 +75,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer-block {
-  border-top: 1px solid #e4e4e4;
+  border-top: 1px solid $gray5;
   &__container {
     width: 100%;
     margin: 0 auto;
@@ -88,6 +94,7 @@ export default {
 
   &__main-logo {
     margin-bottom: 24px;
+    margin-right: 24px;
 
     @media screen and (min-width: 576px) {
       margin-bottom: 0;
@@ -125,16 +132,19 @@ export default {
   }
 
   &__menu-item {
+    display: block;
     font-size: 16px;
     line-height: 24px;
-    color: #78828c;
+    color: $gray2;
     margin-bottom: 12px;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   &__text-bottom {
     font-size: 13px;
     line-height: 24px;
-    color: #78828c;
+    color: $gray2;
     margin-bottom: 12px;
   }
 }

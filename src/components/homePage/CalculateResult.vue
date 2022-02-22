@@ -50,7 +50,7 @@ export default {
   }
 
   &__block {
-    border: 1px solid #e4e4e4;
+    border: 1px solid $gray5;
     min-width: 166px;
     padding: 24px;
     display: flex;
@@ -64,7 +64,7 @@ export default {
   }
 
   &__blocks {
-    border: 1px solid #e4e4e4;
+    border: 1px solid $gray5;
     width: 100%;
     padding: 24px;
     margin-left: 0;
@@ -94,11 +94,11 @@ export default {
     font-size: 13px;
     font-weight: 500;
     line-height: 24px;
-    color: #5a646e;
+    color: $gray1;
   }
 
   &__line-gray {
-    border-bottom: 1px solid #e4e4e4;
+    border-bottom: 1px solid $gray5;
     margin: 36px 0 24px;
   }
 }

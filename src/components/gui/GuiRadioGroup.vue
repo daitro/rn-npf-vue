@@ -50,7 +50,7 @@ export default {
 .radio-group {
   margin-bottom: 24px;
   &__tabs {
-    background-color: #f3f5f7;
+    background-color: $bg-gray;
     padding: 16px 4px 18px;
     border-radius: 28px;
     width: fit-content;
@@ -62,13 +62,13 @@ export default {
   line-height: 24px;
   border-radius: 28px;
   padding: 12px 16px 14px;
-  color: #5a646e;
+  color: $gray1;
   cursor: pointer;
 
   &--active {
-    background-color: #50287d;
+    background-color: $primary;
     border-radius: 28px;
-    color: white;
+    color: $white;
   }
 
   &__input {

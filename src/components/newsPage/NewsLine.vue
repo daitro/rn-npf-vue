@@ -98,7 +98,7 @@ export default {
   }
 
   &:not(&:last-child) {
-    border-bottom: 1px solid #e4e4e4;
+    border-bottom: 1px solid $gray5;
   }
 
   &__title {
@@ -112,7 +112,7 @@ export default {
   &__text {
     font-size: 13px;
     line-height: 24px;
-    color: #5a646e;
+    color: $gray1;
   }
 }
 
@@ -129,7 +129,7 @@ export default {
   &__text {
     font-size: 16px;
     line-height: 24px;
-    color: #5a646e;
+    color: $gray1;
     padding: 24px 0 0;
   }
 }
