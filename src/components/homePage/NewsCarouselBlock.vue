@@ -54,12 +54,7 @@ export default {
       carouselItemWidth: 500,
     };
   },
-  props: {
-    newsList: {
-      type: Array,
-      required: true,
-    },
-  },
+
   methods: {
     onClickNextSlide() {
       if (this.carouselItemActive < `${this.carouselItemAllCount}`) {
@@ -83,6 +78,10 @@ export default {
 
     carouselItemAllCount() {
       return this.newsList.length;
+    },
+
+    newsList() {
+      return this.$store.getters["news/sortedByDateNews"];
     },
   },
   components: {

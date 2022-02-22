@@ -51,12 +51,7 @@ export default {
       carouselItemWidth: 500,
     };
   },
-  props: {
-    historyList: {
-      type: Array,
-      required: true,
-    },
-  },
+
   methods: {
     onClickNextSlide() {
       if (this.carouselItemActive < `${this.carouselItemAllCount}`) {
@@ -80,6 +75,12 @@ export default {
 
     carouselItemAllCount() {
       return this.historyList.length;
+    },
+
+    historyList() {
+      return this.$store.getters["history/historyListYear"];
+      //а если бы надо было взять массив из state, я бы написала
+      //return this.$store.state.history.historyList
     },
   },
   components: {

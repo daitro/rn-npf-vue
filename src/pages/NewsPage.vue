@@ -22,6 +22,9 @@ export default {
     TopBlock,
     NewsLine,
   },
+  created() {
+    this.$store.dispatch("news/getNewsList");
+  },
 };
 </script>
 
