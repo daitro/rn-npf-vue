@@ -1,5 +1,5 @@
 <template>
-  <section class="application-form">
+  <section class="application-form" id="business-callback-form">
     <div class="application-form__container">
       <h3 class="application-form__caption">Свяжитесь с нами</h3>
       <h1 class="application-form__header">
@@ -37,13 +37,14 @@
           @input="company.value = $event"
         />
       </div>
-      <button class="button-primary">Оформить заявку</button>
+      <GuiPrimaryButton />
     </div>
   </section>
 </template>
 
 <script>
 import GuiInput from "../gui/GuiInput.vue";
+import GuiPrimaryButton from "../gui/GuiPrimaryButton.vue";
 
 export default {
   data() {
@@ -76,6 +77,7 @@ export default {
   },
   components: {
     GuiInput,
+    GuiPrimaryButton,
   },
   methods: {
     mailCheck() {
