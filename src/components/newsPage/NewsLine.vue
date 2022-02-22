@@ -31,6 +31,7 @@
 
 <script>
 import GuiRadioGroup from "../gui/GuiRadioGroup.vue";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   data() {
@@ -40,8 +41,14 @@ export default {
     };
   },
   computed: {
+    // ...mapState({
+    //   newsList: (state) => state.news.news,
+    //   newsStoreModule: (state) => state.news,
+    // }),
+    // ...mapGetters(["news/sortedByDateNews"]),
     newsList() {
       return this.$store.getters["news/sortedByDateNews"];
+      // return this["news/sortedByDateNews"];
     },
     radioGroupYears() {
       // Нужно получить массив [2015, 2016, 2017...]

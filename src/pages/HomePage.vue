@@ -9,7 +9,7 @@
     <ForBusinessBlock></ForBusinessBlock>
     <CardList :fundBlockTitle="fundBlockTitle" :cards="cards"></CardList>
     <CalculatorBlock></CalculatorBlock>
-    <NewsCarouselBlock :newsList="newsList"></NewsCarouselBlock>
+    <NewsCarouselBlock></NewsCarouselBlock>
   </div>
 </template>
 
@@ -28,28 +28,6 @@ export default {
       title: "Уверенность в будущем, доступная каждому",
       subtitle:
         "Обеспечьте себе стабильность и приступайте к реализации своих самых смелых планов!",
-      newsList: [
-        {
-          title: "АО НПФ «Ренессанс пенсии» развивает сотрудничество с ВТБ",
-          text: "С целью проведения расчетов организован трехсторонний электронный документооборот при участии ЗАО ВТБ Специализированный депозитарий",
-          date: "21 июня 2019",
-        },
-        {
-          title: "Стратегия для пенсионера",
-          text: "Пять финансовых продуктов, которые помогут сохранить и увеличить доход после выхода на пенсию.",
-          date: "5 июня 2019",
-        },
-        {
-          title: "АО НПФ «Ренессанс пенсии» развивает сотрудничество с ВТБ",
-          text: "С целью проведения расчетов организован трехсторонний электронный документооборот при участии ЗАО ВТБ Специализированный депозитарий",
-          date: "21 июня 2019",
-        },
-        {
-          title: "АО НПФ «Ренессанс пенсии» развивает сотрудничество с ВТБ",
-          text: "С целью проведения расчетов организован трехсторонний электронный документооборот при участии ЗАО ВТБ Специализированный депозитарий",
-          date: "21 июня 2019",
-        },
-      ],
       fundBlockTitle: "Фонд в цифрах",
       cards: [
         {
@@ -80,6 +58,7 @@ export default {
       ],
     };
   },
+
   components: {
     TopBlock,
     TitleBlock,
@@ -87,6 +66,9 @@ export default {
     CardList,
     CalculatorBlock,
     NewsCarouselBlock,
+  },
+  created() {
+    this.$store.dispatch("news/getNewsList");
   },
 };
 </script>
