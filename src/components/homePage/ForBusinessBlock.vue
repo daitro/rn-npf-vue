@@ -9,7 +9,12 @@
           Пенсионные программы дополнят социальный пакет сотрудников и станут
           долгосрочным инструментом мотивации персонала.
         </div>
-        <button class="button-primary">Отправить заявку</button>
+        <button
+          @click="$router.push('/business#business-callback-form')"
+          class="button-primary"
+        >
+          Отправить заявку
+        </button>
       </div>
     </div>
   </div>
