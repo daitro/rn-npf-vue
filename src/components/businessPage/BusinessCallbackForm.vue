@@ -101,7 +101,7 @@ export default {
 
 <style lang="scss" scoped>
 .application-form {
-  background-color: #f3f5f7;
+  background-color: $bg-gray;
 
   &__container {
     max-width: 960px;
@@ -116,7 +116,7 @@ export default {
   &__caption {
     font-size: 13px;
     line-height: 24px;
-    color: #5a646e;
+    color: $gray1;
     margin-bottom: 24px;
   }
 

@@ -140,7 +140,7 @@ export default {
       height: 6px;
       width: 6px;
       border-radius: 50%;
-      background-color: #50287d;
+      background-color: $primary;
       position: absolute;
       left: 8px;
       top: 8px;

@@ -39,7 +39,7 @@ export default {};
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-    color: #78828c;
+    color: $gray2;
   }
 }
 </style>

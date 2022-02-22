@@ -67,7 +67,7 @@ export default {
   &__label {
     font-size: 13px;
     line-height: 24px;
-    color: #b5bdc8;
+    color: $gray4;
   }
 
   &__value {
@@ -85,11 +85,11 @@ export default {
     height: 4px;
     position: absolute;
     bottom: 1.5px;
-    background-color: #cedc01;
+    background-color: $secondary;
   }
 
   &__range {
-    background: #b5bdc8;
+    background: $gray4;
     -webkit-appearance: none;
     width: 100%;
     height: 1px;
@@ -99,7 +99,7 @@ export default {
       height: 24px;
       width: 24px;
       border-radius: 50%;
-      background: white;
+      background: $white;
       cursor: pointer;
       box-shadow: 0px 4px 6px rgba(26, 65, 101, 0.15);
       position: relative;

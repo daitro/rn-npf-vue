@@ -102,7 +102,7 @@ export default {
   &__title {
     font-size: 16px;
     line-height: 24px;
-    color: #b5bdc8;
+    color: $gray4;
     padding: 48px 0 24px;
   }
 
@@ -111,7 +111,7 @@ export default {
     font-weight: 500;
     line-height: 24px;
     margin-bottom: 12px;
-    color: #5a646e;
+    color: $gray1;
     text-decoration: none;
     display: block;
   }
@@ -126,7 +126,7 @@ export default {
   &__bottom-text {
     font-size: 13px;
     line-height: 24px;
-    color: #5a646e;
+    color: $gray1;
   }
 }
 </style>

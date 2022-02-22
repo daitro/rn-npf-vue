@@ -177,7 +177,7 @@ export default {
   &__caption {
     font-size: 16px;
     line-height: 24px;
-    color: #5a646e;
+    color: $gray1;
     margin-bottom: 24px;
   }
 }

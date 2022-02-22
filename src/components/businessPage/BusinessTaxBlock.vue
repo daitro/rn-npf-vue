@@ -144,7 +144,7 @@ export default {
   &__text {
     font-size: 16px;
     line-height: 24px;
-    color: #5a646e;
+    color: $gray1;
   }
 }
 </style>

@@ -169,7 +169,7 @@ export default {
     font-size: 16px;
     line-height: 24px;
     font-weight: 600;
-    color: #5a646e;
+    color: $gray1;
     margin-bottom: 24px;
   }
 
@@ -177,7 +177,7 @@ export default {
     font-size: 13px;
     line-height: 24px;
     font-weight: 500;
-    color: #5a646e;
+    color: $gray1;
   }
 }
 </style>

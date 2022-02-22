@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app" id="app">
     <TopMenu></TopMenu>
     <router-view />
     <FooterBlock></FooterBlock>
@@ -22,4 +22,10 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.app {
+  max-width: 1440px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 6px 2px #d2dce6;
+}
+</style>
