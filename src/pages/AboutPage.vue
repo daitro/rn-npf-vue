@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    <TopMenu />
     <TopBlock
       :title-text="title"
       :subtitle-text="subtitle"
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import TopMenu from "../components/app/TopMenu.vue";
 import TopBlock from "../components/app/TopBlock.vue";
 import AboutContent from "../components/aboutPage/AboutContent.vue";
 import CardList from "../components/general/CardList.vue";
@@ -52,6 +54,7 @@ export default {
     };
   },
   components: {
+    TopMenu,
     TopBlock,
     AboutContent,
     CardList,

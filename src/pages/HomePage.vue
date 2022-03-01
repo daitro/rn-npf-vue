@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TopMenu />
     <TopBlock
       :title-text="title"
       :subtitle-text="subtitle"
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import TopMenu from "../components/app/TopMenu.vue";
 import TopBlock from "../components/app/TopBlock.vue";
 import TitleBlock from "../components/homePage/TitleBlock.vue";
 import ForBusinessBlock from "../components/homePage/ForBusinessBlock.vue";
@@ -60,15 +62,13 @@ export default {
   },
 
   components: {
+    TopMenu,
     TopBlock,
     TitleBlock,
     ForBusinessBlock,
     CardList,
     CalculatorBlock,
     NewsCarouselBlock,
-  },
-  created() {
-    this.$store.dispatch("news/getNewsList");
   },
 };
 </script>
