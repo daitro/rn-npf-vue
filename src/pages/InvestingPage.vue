@@ -1,7 +1,17 @@
-<template></template>
+<template>
+  <div class="investing">
+    <TopMenu />
+  </div>
+</template>
 
 <script>
-export default {};
+import TopMenu from "../components/app/TopMenu.vue";
+
+export default {
+  components: {
+    TopMenu,
+  },
+};
 </script>
 
 <style></style>

@@ -1,5 +1,6 @@
 <template>
   <div class="business-page">
+    <TopMenu />
     <TopBlock
       :title-text="title"
       :subtitle-text="subtitle"
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import TopMenu from "../components/app/TopMenu.vue";
 import TopBlock from "../components/app/TopBlock.vue";
 import BusinessProgramm from "../components/businessPage/BusinessProgramm.vue";
 import GuiTwoImagesBlock from "../components/gui/GuiTwoImagesBlock.vue";
@@ -51,6 +53,7 @@ export default {
     };
   },
   components: {
+    TopMenu,
     TopBlock,
     BusinessProgramm,
     GuiTwoImagesBlock,
