@@ -1,5 +1,5 @@
 <template>
-  <section class="calculator-block">
+  <section class="calculator-block" id="calculator-block">
     <div class="calculator-block__container">
       <h3 class="calculator-block__caption">Калькулятор</h3>
       <h1 class="title title--black">Рассчитайте будущую пенсию</h1>
@@ -171,7 +171,7 @@ export default {
   &__container {
     max-width: 960px;
     margin: 0 auto;
-    padding: 24px;
+    padding: 48px 24px;
   }
 
   &__caption {

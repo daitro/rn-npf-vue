@@ -22,10 +22,6 @@
         {{ route.label }}
       </router-link>
 
-      <h3 class="side-bar-menu__title">Клиентам</h3>
-      <div class="side-bar-menu__item" v-for="item in clientsList" :key="item">
-        {{ item }}
-      </div>
       <div class="side-bar-menu__callback-number">8 800 200-47-66</div>
       <p class="side-bar-menu__bottom-text">
         © 2009-2019 НПФ Ренессанс. Пенсии Лицензия № 383/2 от 16 июня 2009 года
@@ -57,12 +53,14 @@ export default {
           label: "Бизнес",
           path: "/business",
         },
-      ],
-      clientsList: [
-        "Калькулятор",
-        "Написать нам",
-        "Помощь",
-        "Политика конфиденциальности",
+        {
+          label: "Новости",
+          path: "/news",
+        },
+        {
+          label: "Калькулятор",
+          path: "/#calculator-block",
+        },
       ],
     };
   },
@@ -127,6 +125,10 @@ export default {
     font-size: 13px;
     line-height: 24px;
     color: $gray1;
+  }
+
+  .router-link-exact-active {
+    color: $gray3;
   }
 }
 </style>
