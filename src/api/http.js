@@ -1,23 +1,25 @@
 import axios from "axios";
 
-const DOMEN = "http://localhost:3000";
+const SERVER_DOMEN = "http://localhost:3000";
 
 const HTTP = {
   // read
   get(url) {
-    return axios.get(DOMEN + url);
+    return axios.get(SERVER_DOMEN + url);
   },
+  //МЕТОД ВОЗВРАЩАЮТ РЕЗУЛЬТАТ ВЫЗОВА МЕТОДА БИБЛИОТЕКИ AXIOS
+  // а он в свою очередь возвращает промис
   // create
   post(url, data) {
-    return axios.post(DOMEN + url, data);
+    return axios.post(SERVER_DOMEN + url, data);
   },
   // update
   put(url, data) {
-    return axios.put(DOMEN + url, data);
+    return axios.put(SERVER_DOMEN + url, data);
   },
   // delete
   delete(url) {
-    return axios.delete(DOMEN + url);
+    return axios.delete(SERVER_DOMEN + url);
   },
 };
 
