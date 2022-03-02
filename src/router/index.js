@@ -1,10 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
+//TODO: Импортировать страницы через ленивую загрузку
 import Home from "../pages/HomePage.vue";
 import About from "../pages/AboutPage.vue";
 import Investing from "../pages/InvestingPage.vue";
 import Business from "../pages/BusinessPage.vue";
 import News from "../pages/NewsPage.vue";
+import NewsArticle from "../pages/NewsPageArticle.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +36,11 @@ const routes = [
     path: "/news",
     name: "News",
     component: News,
+  },
+  {
+    path: "/news/:id",
+    name: "News-Article",
+    component: NewsArticle,
   },
 ];
 
