@@ -13,6 +13,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    dark: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     imgUrl() {
