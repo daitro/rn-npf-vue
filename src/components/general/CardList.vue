@@ -42,7 +42,7 @@ export default {
   padding: 0px 24px;
 
   @media screen and (min-width: 768px) {
-    padding: 48px 24px;
+    padding: 48px 24px 24px;
   }
 }
 
