@@ -139,6 +139,10 @@ export default {
     margin-bottom: 12px;
     text-decoration: none;
     cursor: pointer;
+
+    &:hover {
+      color: $gray4;
+    }
   }
 
   &__text-bottom {
