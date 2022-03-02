@@ -8,12 +8,10 @@
 
     <section class="news-line__container">
       <div class="news-line__items">
-        <div
-          class="new-item"
-          v-for="(item, index) in filteredNewsByYear"
-          :key="index"
-        >
-          <h3 class="new-item__title">{{ item.title }}</h3>
+        <div class="new-item" v-for="item in filteredNewsByYear" :key="item.id">
+          <h3 class="new-item__title" @click="goToNewsArticle(item.id)">
+            {{ item.title }}
+          </h3>
           <p class="new-item__text">{{ item.date }}</p>
         </div>
       </div>
@@ -52,19 +50,26 @@ export default {
     },
     radioGroupYears() {
       // Нужно получить массив [2015, 2016, 2017...]
-      return this.newsList
-        .map((news) => {
-          return String(new Date(news.date).getFullYear());
-        })
-        .filter((year, index, self) => {
-          return self.indexOf(year) === index;
-        })
-        .map((year) => {
-          return {
-            value: year,
-            label: year,
-          };
-        });
+      return (
+        this.newsList
+          //отфильтруем массив всех новостей и получим из свойства date только дату
+          .map((news) => {
+            return String(new Date(news.date).getFullYear());
+          })
+
+          //сделаем массив уникальным
+          .filter((year, index, arr) => {
+            return arr.indexOf(year) === index;
+          })
+
+          //создадим массив объектов (с данными для радио-кнопок)
+          .map((year) => {
+            return {
+              value: year,
+              label: year,
+            };
+          })
+      );
     },
     filteredNewsByYear() {
       return this.newsList.filter((news) => {
@@ -72,6 +77,19 @@ export default {
       });
     },
   },
+
+  methods: {
+    goToNewsArticle(id) {
+      // this.$router.push(`/news/${id}`);
+      this.$router.push({
+        name: "News-Article",
+        params: {
+          id: id,
+        },
+      });
+    },
+  },
+
   components: {
     GuiRadioGroup,
   },
@@ -87,6 +105,10 @@ export default {
   &__container {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__items {
+    max-width: 456px;
   }
 }
 
