@@ -1,4 +1,4 @@
-import HTTP from "./http";
+import HTTP from "./http.js";
 
 // На следующей строке дёргаем метод, который прописан
 // в router.news.js на серверной части.
@@ -7,8 +7,14 @@ const getNewsList = () => {
   return HTTP.get("/api/news/list");
 };
 
+///article/:id
+const getNewsArticleById = (id) => {
+  return HTTP.get(`/api/news/article/${id}`);
+};
+
 const newsApi = {
   getNewsList,
+  getNewsArticleById,
 };
 
 export default newsApi;
