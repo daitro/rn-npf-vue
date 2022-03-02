@@ -2,7 +2,8 @@
   <header
     :class="{
       header: true,
-      'header-black': isBlack,
+      'header--dark-theme': darkTheme,
+      'header-black': isBlack && !darkTheme,
     }"
     id="header"
   >
@@ -12,13 +13,14 @@
           <GuiTripleIcon
             class="menu__hamburger"
             icon="Hamburger"
-            light
+            :light="!darkTheme"
             @click.native="openMenu"
           />
 
           <GuiLogotype
             logotype="mainLogo"
-            light
+            :light="!darkTheme"
+            :dark="darkTheme"
             @click.native="$router.push('/')"
           ></GuiLogotype>
         </div>
@@ -27,7 +29,11 @@
             v-for="route in routes"
             :key="route.path"
             :to="route.path"
-            class="menu__item"
+            exact
+            :class="{
+              menu__item: true,
+              'menu__item--dark-theme': darkTheme,
+            }"
           >
             {{ route.label }}
           </router-link>
@@ -35,8 +41,22 @@
 
         <div class="menu__blockEnd">
           <div class="contact">
-            <div class="contact__number">8 800 200-47-66</div>
-            <div class="contact__text">Обратный звонок</div>
+            <div
+              :class="{
+                contact__number: true,
+                'contact__number--dark-theme': darkTheme,
+              }"
+            >
+              8 800 200-47-66
+            </div>
+            <div
+              :class="{
+                contact__text: true,
+                'contact__text--dark-theme': darkTheme,
+              }"
+            >
+              Обратный звонок
+            </div>
           </div>
 
           <button
@@ -46,11 +66,18 @@
           >
             <GuiTripleIcon
               icon="User"
-              light
+              :light="!darkTheme"
               class="login__user"
               :hovered="isLoginButtonHovered"
             />
-            <div class="login__text">Войти</div>
+            <div
+              :class="{
+                login__text: true,
+                'login__text--dark-theme': darkTheme,
+              }"
+            >
+              Войти
+            </div>
           </button>
         </div>
       </nav>
@@ -94,8 +121,7 @@ export default {
   methods: {
     onScrollHandler(event) {
       let windowScrollTop = event.target.documentElement.scrollTop;
-      let topBlockHeight = document.getElementById("top-block").clientHeight;
-      this.isBlack = windowScrollTop > topBlockHeight;
+      this.isBlack = windowScrollTop > 10;
     },
     openMenu() {
       let sideBar = document.getElementById("side-bar");
@@ -103,6 +129,13 @@ export default {
       window.document.body.style.overflow = "hidden";
     },
   },
+
+  props: {
+    darkTheme: {
+      type: Boolean,
+    },
+  },
+
   mounted() {
     window.document.addEventListener("scroll", this.onScrollHandler, {
       passive: true,
@@ -122,6 +155,11 @@ export default {
   top: 0;
   z-index: 2;
   transition: background-color 0.22s;
+
+  &--dark-theme {
+    position: static;
+    border-bottom: 1px solid $gray5;
+  }
 
   &__inner {
     max-width: 1344px;
@@ -158,15 +196,25 @@ export default {
 
   &__item {
     display: none;
+
     &:hover {
       color: $white;
     }
+
+    &--dark-theme:hover {
+      color: $gray3;
+    }
+
     @media screen and (min-width: 1200px) {
       display: block;
       font-size: 16px;
       color: $gray4;
       line-height: 24px;
       text-decoration: none;
+
+      &--dark-theme {
+        color: $main-dark;
+      }
     }
   }
 
@@ -190,7 +238,8 @@ export default {
   &__number {
     color: $white;
     line-height: 24px;
-    &--dark {
+
+    &--dark-theme {
       color: $main-dark;
     }
   }
@@ -199,6 +248,10 @@ export default {
     color: $gray4;
     font-size: 11px;
     line-height: 18px;
+
+    &--dark-theme {
+      color: $gray2;
+    }
   }
 }
 
@@ -206,11 +259,20 @@ export default {
   display: flex;
   align-items: center;
 
+  &:hover > .login__text--dark-theme {
+    color: $gray3;
+  }
+
   &__text {
     display: none;
     color: $white;
     line-height: 24px;
     margin-left: 10px;
+
+    &--dark-theme {
+      color: $main-dark;
+    }
+
     @media screen and (min-width: 578px) {
       display: block;
     }
@@ -219,5 +281,9 @@ export default {
 
 .header-black {
   background-color: rgba(0, 0, 0, 0.9);
+}
+
+.router-link-exact-active {
+  color: $white;
 }
 </style>
