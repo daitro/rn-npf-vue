@@ -3,20 +3,24 @@
     <button class="news-article__nav" @click="$router.push({ name: 'News' })">
       К списку новостей
     </button>
-    <h1 class="news-article__title">{{ title }}</h1>
-    <div class="news-article__date">{{ date }}</div>
-    <p
-      class="news-article__paragraphs"
-      v-for="paragraph of paragraphs"
-      :key="paragraph"
-    >
-      {{ paragraph }}
-    </p>
+    <GuiPreloader :show="show" />
+    <div v-show="!show" class="article">
+      <h1 class="news-article__title">{{ title }}</h1>
+      <div class="news-article__date">{{ date }}</div>
+      <p
+        class="news-article__paragraphs"
+        v-for="paragraph of paragraphs"
+        :key="paragraph"
+      >
+        {{ paragraph }}
+      </p>
+    </div>
   </section>
 </template>
 
 <script>
 import newsApi from "../../api/news";
+import GuiPreloader from "../../components/gui/GuiPreloader.vue";
 
 export default {
   data() {
@@ -24,16 +28,26 @@ export default {
       title: null,
       date: null,
       paragraphs: null,
+      show: null,
     };
   },
 
   methods: {
     getArticle() {
-      newsApi.getNewsArticleById(this.$route.params.id).then((response) => {
-        this.paragraphs = response.data.paragraphs;
-        this.title = response.data.title;
-        this.date = response.data.date;
-      });
+      this.show = true;
+      newsApi
+        .getNewsArticleById(this.$route.params.id)
+        .then((response) => {
+          this.paragraphs = response.data.paragraphs;
+          this.title = response.data.title;
+          this.date = response.data.date;
+        })
+        .catch((error) => {
+          // Тут обрабатываем кейс ошибки
+        })
+        .finally(() => {
+          this.show = false;
+        });
     },
   },
 
@@ -49,6 +63,7 @@ export default {
 
   components: {
     newsApi,
+    GuiPreloader,
   },
 };
 </script>

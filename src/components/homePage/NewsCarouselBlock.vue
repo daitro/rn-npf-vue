@@ -24,20 +24,12 @@
           :style="{ left: `${carouselItemOffsetLeft}px` }"
           class="news-carousel__hidden-block"
         >
-          <div
-            v-for="(item, index) in newsList"
-            :key="index"
-            class="new-item"
-            :class="{
-              'new-item--active':
-                index === carouselItemActive ||
-                index === carouselItemActive - 1,
-            }"
-          >
-            <h3 class="new-item__title">{{ item.title }}</h3>
-            <p class="new-item__text">{{ item.text }}</p>
-            <div class="new-item__date">{{ item.date }}</div>
-          </div>
+          <NewsList
+            :generalListOfNews="newsList"
+            :carouselItemActive="carouselItemActive"
+            :newsCarousel="newsCarousel"
+            :carouselItemOffsetLeft="carouselItemOffsetLeft"
+          />
         </div>
       </div>
     </div>
@@ -46,12 +38,14 @@
 
 <script>
 import GuiTripleIcon from "../gui/GuiTripleIcon.vue";
+import NewsList from "../general/NewsList.vue";
 
 export default {
   data() {
     return {
       carouselItemActive: 1,
       carouselItemWidth: 500,
+      newsCarousel: true,
     };
   },
 
@@ -86,6 +80,7 @@ export default {
   },
   components: {
     GuiTripleIcon,
+    NewsList,
   },
 };
 </script>
@@ -133,51 +128,11 @@ export default {
     }
   }
 
-  &__hidden-block {
-    display: inline-flex;
-    position: relative;
-    transition: all 0.5s ease;
-    left: 0;
-  }
-}
-
-.new-item {
-  width: 340px;
-  padding-right: 72px;
-  white-space: normal;
-  cursor: pointer;
-  opacity: 0.5;
-
-  &--active {
-    opacity: 1;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 500px;
-    padding-right: 140px;
-  }
-
-  &__title {
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 600;
-    color: #50287e;
-    margin-bottom: 24px;
-  }
-
-  &__text {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 600;
-    color: $gray1;
-    margin-bottom: 24px;
-  }
-
-  &__date {
-    font-size: 13px;
-    line-height: 24px;
-    font-weight: 500;
-    color: $gray1;
-  }
+  // &__hidden-block {
+  //   display: inline-flex;
+  //   position: relative;
+  //   transition: all 0.5s ease;
+  //   left: 0;
+  // }
 }
 </style>

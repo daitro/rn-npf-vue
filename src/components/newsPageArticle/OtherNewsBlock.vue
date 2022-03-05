@@ -1,26 +1,33 @@
 <template>
   <div class="other-news">
     <h2 class="other-news__header">Другие новости</h2>
-    <div v-for="item in getTwoNews" :key="item.id" class="new-item">
-      <button @click="goToNewsArticle(item.id)" class="new-item__title">
-        {{ item.title }}
-      </button>
-      <p class="new-item__date">{{ item.date }}</p>
-    </div>
+    <GuiPreloader v-if="show" />
+    <NewsList
+      v-else
+      :generalListOfNews="getTwoNews"
+      :newsListDefault="newsListDefault"
+    />
   </div>
 </template>
 
 <script>
+import NewsList from "../general/NewsList.vue";
+import GuiPreloader from "../gui/GuiPreloader.vue";
+
 export default {
-  methods: {
-    goToNewsArticle(id) {
-      this.$router.push(`/news/${id}`);
-    },
+  data() {
+    return {
+      newsListDefault: true,
+    };
   },
 
   computed: {
     newsList() {
       return this.$store.getters["news/sortedByDateNews"];
+    },
+
+    show() {
+      return this.$store.state.news.isLoading;
     },
 
     getTwoNews() {
@@ -30,6 +37,11 @@ export default {
         return elem.id === currentNews - 1 || elem.id === currentNews + 1;
       });
     },
+  },
+
+  components: {
+    NewsList,
+    GuiPreloader,
   },
 };
 </script>
@@ -44,32 +56,6 @@ export default {
     font-size: 34px;
     line-height: 48px;
     font-weight: 500;
-  }
-}
-
-.new-item {
-  padding: 24px 0 48px;
-  cursor: pointer;
-  &:hover > &__title {
-    color: #802be0;
-  }
-
-  &:not(&:last-child) {
-    border-bottom: 1px solid $gray5;
-  }
-
-  &__title {
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 500;
-    color: #6834a2;
-    margin-bottom: 24px;
-  }
-
-  &__text {
-    font-size: 13px;
-    line-height: 24px;
-    color: $gray1;
   }
 }
 </style>
