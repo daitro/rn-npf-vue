@@ -8,12 +8,12 @@
 
     <section class="news-line__container">
       <div class="news-line__items">
-        <div class="new-item" v-for="item in filteredNewsByYear" :key="item.id">
-          <h3 class="new-item__title" @click="goToNewsArticle(item.id)">
-            {{ item.title }}
-          </h3>
-          <p class="new-item__text">{{ item.date }}</p>
-        </div>
+        <GuiPreloader v-if="show" />
+        <NewsList
+          v-else
+          :generalListOfNews="filteredNewsByYear"
+          :newsListDefault="newsListDefault"
+        />
       </div>
       <aside class="contact-information">
         <h3 class="contact-information__title">Контакты пресс-службы</h3>
@@ -29,25 +29,26 @@
 
 <script>
 import GuiRadioGroup from "../gui/GuiRadioGroup.vue";
-import { mapState, mapGetters } from "vuex";
+import NewsList from "../general/NewsList.vue";
+import GuiPreloader from "../gui/GuiPreloader.vue";
 
 export default {
   data() {
     return {
       nameRadioGroup: "years",
       choosedYear: "2021",
+      newsListDefault: true,
     };
   },
   computed: {
-    // ...mapState({
-    //   newsList: (state) => state.news.news,
-    //   newsStoreModule: (state) => state.news,
-    // }),
-    // ...mapGetters(["news/sortedByDateNews"]),
     newsList() {
       return this.$store.getters["news/sortedByDateNews"];
-      // return this["news/sortedByDateNews"];
     },
+
+    show() {
+      return this.$store.state.news.isLoading;
+    },
+
     radioGroupYears() {
       // Нужно получить массив [2015, 2016, 2017...]
       return (
@@ -71,6 +72,7 @@ export default {
           })
       );
     },
+
     filteredNewsByYear() {
       return this.newsList.filter((news) => {
         return this.choosedYear === String(new Date(news.date).getFullYear());
@@ -78,20 +80,10 @@ export default {
     },
   },
 
-  methods: {
-    goToNewsArticle(id) {
-      // this.$router.push(`/news/${id}`);
-      this.$router.push({
-        name: "News-Article",
-        params: {
-          id: id,
-        },
-      });
-    },
-  },
-
   components: {
     GuiRadioGroup,
+    NewsList,
+    GuiPreloader,
   },
 };
 </script>
@@ -127,7 +119,7 @@ export default {
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
-    color: #6834a2;
+    color: $primary;
     margin-bottom: 24px;
   }
 
