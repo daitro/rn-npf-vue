@@ -38,11 +38,12 @@ export default {
 <style lang="scss" scoped>
 .fund-block {
   max-width: 960px;
-  margin: 0 auto 48px;
-  padding: 0px 24px;
+  margin: 0 auto;
+  padding: 24px;
 
   @media screen and (min-width: 768px) {
     padding: 48px 24px 24px;
+    margin: 0 auto 48px;
   }
 }
 
@@ -63,10 +64,13 @@ export default {
 }
 
 .content-block {
-  border-bottom: 1px solid #e4e6e8;
   padding: 24px 12px;
   flex-shrink: 0;
   margin-right: -1px;
+
+  &:not(&:last-child) {
+    border-bottom: 1px solid #e4e6e8;
+  }
 
   @media screen and (min-width: 576px) {
     margin-top: -1px;
