@@ -51,19 +51,30 @@ export default {
   margin-bottom: 24px;
   &__tabs {
     background-color: $bg-gray;
-    padding: 16px 4px 18px;
+    padding: 12px 4px 10px;
     border-radius: 28px;
     width: fit-content;
+
+    @media screen and(min-width: 576px) {
+      padding: 16px 4px 18px;
+    }
   }
 }
 
 .tab {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 36px;
   border-radius: 28px;
-  padding: 12px 16px 14px;
+  padding: 10px 12px 12px;
+  margin-bottom: 12px;
   color: $gray1;
   cursor: pointer;
+
+  @media screen and(min-width: 576px) {
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px 16px 14px;
+  }
 
   &--active {
     background-color: $primary;

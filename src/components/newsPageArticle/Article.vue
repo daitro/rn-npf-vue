@@ -98,8 +98,13 @@ export default {
   }
 
   &__title {
-    font-size: 34px;
-    line-height: 48px;
+    font-size: 28px;
+    line-height: 36px;
+
+    @media screen and (min-width: 576px) {
+      font-size: 34px;
+      line-height: 48px;
+    }
   }
 
   &__date {

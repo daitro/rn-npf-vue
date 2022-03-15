@@ -277,6 +277,10 @@ export default {
       display: block;
     }
   }
+
+  &__user {
+    margin-left: 8px;
+  }
 }
 
 .header-black {
