@@ -92,11 +92,20 @@ export default {
 .news-line {
   max-width: 960px;
   margin: 0 auto;
-  padding: 68px 24px 72px;
+  padding: 36px 24px 48px;
+
+  @media screen and(min-width: 768px) {
+    padding: 68px 24px 72px;
+  }
 
   &__container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+
+    @media screen and(min-width: 768px) {
+      flex-direction: row;
+    }
   }
 
   &__items {
@@ -132,12 +141,15 @@ export default {
 
 .contact-information {
   padding-top: 24px;
-  margin-left: 72px;
+
+  @media screen and(min-width: 768px) {
+    margin-left: 72px;
+  }
 
   &__title {
     font-size: 18px;
     line-height: 24px;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   &__text {
