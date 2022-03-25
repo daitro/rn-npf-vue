@@ -165,7 +165,7 @@ export default {
     position: relative;
     max-width: 220px;
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     margin: 24px 0;
   }
 
