@@ -1,23 +1,31 @@
-# rn-npf
+# Southern Bank
 
 ## Project setup
+
 ```
 npm install
 ```
 
+```
+npm run client:install
+```
+
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
 ```
-npm run build
-```
-### Server part
-```
-https://github.com/ebelikov/pet-bank-server
+npm run client
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+npm run dev
+```
+
+### Compiles and minifies for production
+
+```
+npm run client:build
+```
