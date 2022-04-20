@@ -11,30 +11,31 @@
 
 ## Project setup
 
+Установка серверной части
 ```
 npm install
 ```
-
+Установка frontend-части
 ```
 npm client:install
 ```
 
 ### Compiles and hot-reloads for development
-
+Запуск сервера в режиме разработки
 ```
 npm run serve
 ```
-
+Запуск frontend-части в режиме разработки
 ```
 npm run client
 ```
-
+Одновременный запуск серверной и frontend частей 
 ```
 npm run dev
 ```
 
 ### Compiles and minifies for production
-
+Сборка frontend-части
 ```
 npm run client:build
 ```
