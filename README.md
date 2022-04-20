@@ -40,3 +40,6 @@ npm run dev
 npm run client:build
 ```
 Автоматизация приложения, запуск в production
+```
+npm run start
+```
