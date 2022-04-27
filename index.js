@@ -13,7 +13,6 @@ app.use("/api/news", newsRoutes);
 app.use("/api/history", historyRoutes);
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === "PRODUCTION") {
-	console.log("hi");
 	app.use("/", express.static(path.join(__dirname, "client", "dist")));
 
 	app.get("*", (req, res) => {
